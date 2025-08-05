@@ -35,7 +35,7 @@ jobs:
       - name: 🔐 Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::423278975773:user/player
+          role-to-assume: arn:aws:iam::423278975773:role/cdk_role
           aws-region: us-east-1
 
       - name: 🚀 Deploy CDK Stack
