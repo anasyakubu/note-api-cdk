@@ -4,7 +4,8 @@ import { DynamoDBDocumentClient, GetCommand, PutCommand, ScanCommand, DeleteComm
 import { v4 as uuidv4 } from 'uuid';
 
 const client = DynamoDBDocumentClient.from(new DynamoDBClient({}));
-const TABLE_NAME = process.env.TABLE_NAME!;
+// const TABLE_NAME = process.env.TABLE_NAME! || "note-db";
+const TABLE_NAME = "Notes";
 
 export const handler: APIGatewayProxyHandler = async (event) => {
   const method = event.httpMethod;
@@ -15,7 +16,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     if (method === 'POST' && path === '/notes') {
       const body = JSON.parse(event.body || '{}');
       const note = {
-        id: uuidv4(),
+        id: `${Date.now()}-${Math.random().toString(36).substring(2, 8)}`,
         title: body.title,
         content: body.content,
         createdAt: new Date().toISOString(),
