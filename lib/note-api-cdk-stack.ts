@@ -18,7 +18,7 @@ export class NoteApiCdkStack extends cdk.Stack {
 
     // Lambda Function
     const notesLambda = new lambda.Function(this, 'NotesHandler', {
-      runtime: lambda.Runtime.NODEJS_18_X,
+      runtime: lambda.Runtime.NODEJS_20_X,
       handler: 'notes.handler',
       code: lambda.Code.fromAsset('lambda'),
       environment: {
