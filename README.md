@@ -1,4 +1,3 @@
----
 
 ## 📘 README.md – Serverless Note-Taking API with AWS CDK & TypeScript
 
